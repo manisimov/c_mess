@@ -1,0 +1,4 @@
+clang -g -O0 server.c -o server
+clang -g -O0 client.c -o client
+
+socat - UNIX-CONNECT:mysock
