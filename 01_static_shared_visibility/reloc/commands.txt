@@ -1,0 +1,9 @@
+https://gcc.gnu.org/wiki/Visibility
+
+clang reloc.c -c
+clang reloc.c -c -fvisibility=hidden
+
+objcopy --globalize-symbol=reloc_static_without reloc.o
+objcopy --localize-symbol=reloc_static_without reloc.o
+
+clang reloc.o main.c -o main

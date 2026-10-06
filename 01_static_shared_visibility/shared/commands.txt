@@ -1,0 +1,11 @@
+Hidden in relocatable becomes local in shared object
+So we cannot link this symbol
+
+clang -shared  shared.c -o shared.so
+clang -shared  shared.c -o shared.so -fvisibility=hidden
+
+objdump -T shared.so
+objdump -t shared.so
+
+clang main.c shared.so -o main
+LD_LIBRARY_PATH=. ./main
